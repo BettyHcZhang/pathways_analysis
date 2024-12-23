@@ -9,6 +9,8 @@ PathwayGenie leverages Neo4j and OpenAI to answer complex biological questions l
 - what are the entities interact with Gene SOCS4?
 - Analyze the cascade downstream effects of 'GCK' on Type II diabetes mellitus.
 
+![Architecture](assets/archi.jpg)
+
 ## Prerequisites
 - Python 3.12 or later
 - Neo4j
