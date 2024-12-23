@@ -1,0 +1,7 @@
+python-dotenv
+langchain_community
+neo4j
+langgraph
+langchain_neo4j
+matplotlib
+langchain_openai
