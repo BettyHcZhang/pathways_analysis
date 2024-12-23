@@ -7,3 +7,5 @@ if __name__ == '__main__':
     importer = Neo4jImporter()
 
     importer.import_all_data(parser)
+
+    print("DONE KG Construction")

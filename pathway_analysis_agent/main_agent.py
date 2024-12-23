@@ -19,7 +19,8 @@ from pathway_analysis_agent.tools.query_gene_go_tool import query_gene_go_term_t
 from pathway_analysis_agent.tools.query_gene_interactions import query_gene_interaction_downstream_tool
 
 # Create LLM
-llm = ChatOpenAI(model=os.getenv("openai_model"), openai_api_key=os.getenv('openai_api_key'),temperature=0,max_tokens=None)  # gpt-4 #gpt-4o
+llm = ChatOpenAI(model=os.getenv("openai_model"), openai_api_key=os.getenv('openai_api_key'), temperature=0,
+                 max_tokens=None)
 
 tools = [query_gene_diseases_pathway_tool, query_gene_interaction_downstream_tool, query_gene_go_term_tool]
 llm_with_tools = llm.bind_tools(tools)
@@ -85,24 +86,23 @@ react_graph = workflow.compile()
 
 # Show
 # graph_image_data = react_graph.get_graph(xray=True).draw_mermaid_png()
-
 # Convert byte data to Image
 # image = Image.open(io.BytesIO(graph_image_data))
-#
 # # Display the image
 # plt.imshow(image)
 # plt.axis('off')  # Hide axes
 # plt.show()
-q_list = ["find the diseases associated with Gene 'MAPK8'",
-          "find the diseases associated with Gene 'GCK' , also find other entities related to this disease",
-          "what are the entities interact with Gene SOCS4",
-          "what is the go-term about gene 'SOCS4'",
-          "Analyze the cascade downstream effects of 'GCK' on Type II diabetes mellitus."
-          ]
+
+example_query_list = ["find the diseases associated with Gene 'MAPK8'",
+                      "find the diseases associated with Gene 'GCK' , also find other entities related to this disease",
+                      "what are the entities interact with Gene SOCS4",
+                      "what is the go-term about gene 'SOCS4'",
+                      "Analyze the cascade downstream effects of 'GCK' on Type II diabetes mellitus."
+                      ]
 
 if __name__ == '__main__':
     response = react_graph.invoke({
-        "query": q_list[-1],
+        "query": example_query_list[-1],
         "messages": [],
         "current_turn": 0
     })

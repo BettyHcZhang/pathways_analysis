@@ -11,7 +11,7 @@ from scripts.parsers.kgml_parser import KGMLParser
 @dataclass
 class GeneParser:
     kgml_file_path: Optional[List[str]] = None
-    gaf_file_path: str = '../data/KEGG_data/goa_human.gaf'
+    gaf_file_path: str = '../data/goa_human.gaf'
 
     def __post_init__(self):
         if self.kgml_file_path is None:
