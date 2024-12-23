@@ -261,7 +261,7 @@ class Neo4jImporter:
 
     def import_all_data(self,parser):
         diseases, gene_entry_list, gene_relation_list, gene_to_annotation_dict, go_term_set = parser.parse_all()
-
+        print("DONE KG Process")
         self.create_constraints()
         self.create_diseases(diseases)
         self.create_gene(gene_entry_list)  # Insert gene entries into the Neo4j database
